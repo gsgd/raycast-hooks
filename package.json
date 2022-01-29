@@ -1,0 +1,33 @@
+{
+  "name": "raycast-hooks",
+  "version": "1.0.0",
+  "description": "Hooks for Raycast extensions",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gsgd/raycast-hooks.git"
+  },
+  "keywords": [
+    "Raycast",
+    "Extensions",
+    "React",
+    "Hooks"
+  ],
+  "author": "gdsmith",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/gsgd/raycast-hooks/issues"
+  },
+  "homepage": "https://github.com/gsgd/raycast-hooks#readme",
+  "devDependencies": {
+    "@raycast/api": "^1.27.1",
+    "@types/react": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2"
+  }
+}
