@@ -92,7 +92,7 @@ return (
 
 ```
 
-## useFavorites
+## usePreferences
 
 Store a list of preferences in localStorage
 

@@ -1,6 +1,6 @@
 {
   "name": "raycast-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hooks for Raycast extensions",
   "main": "src/index.js",
   "scripts": {
