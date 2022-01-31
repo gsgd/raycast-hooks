@@ -1,4 +1,4 @@
-import { ActionPanel, ImageLike } from "@raycast/api";
+import {ActionPanel, ImageLike} from "@raycast/api";
 
 interface TogglePreferenceActionProps {
   name: string;

@@ -23,9 +23,11 @@ export function useFavorites(
   FavList,
   FavList[],
   (...rest: (FavList | undefined)[]) => void,
-  (item: string) => Promise<void>,
-  (item: string) => Promise<void>,
-  () => Promise<void>
+  {
+    add: (item: string) => Promise<void>,
+    remove: (item: string) => Promise<void>,
+    reset: () => Promise<void>,
+  },
 ] {
   const [allLists, setAll] = useState(lists);
   const [favs, setFavs] = useState<FavList>([]);
@@ -36,7 +38,7 @@ export function useFavorites(
 
   const setLists = useCallback((...rest: (FavList | undefined)[]) => setAll(rest), [key]);
 
-  const addFav = useCallback(
+  const add = useCallback(
     async (item: string) => {
       const favs = await getFavs(key);
       if (!favs.includes(item)) {
@@ -47,7 +49,7 @@ export function useFavorites(
     [key]
   );
 
-  const remFav = useCallback(
+  const remove = useCallback(
     async (item: string) => {
       const favs = (await getFavs(key)).filter((fav) => fav !== item);
       updateFavs(key, favs).then(() => setFavs(favs));
@@ -55,10 +57,10 @@ export function useFavorites(
     [key, allLists]
   );
 
-  const resetFavs = useCallback(async () => {
+  const reset = useCallback(async () => {
     await updateFavs(key, [] as FavList);
     setFavs([] as FavList);
   }, [key, allLists]);
 
-  return [favs || [], stripFavs(allLists, favs), setLists, addFav, remFav, resetFavs];
+  return [favs || [], stripFavs(allLists, favs), setLists, { add, remove, reset}];
 }

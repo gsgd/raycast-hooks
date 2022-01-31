@@ -20,7 +20,7 @@ export default function TogglePreferenceAction({
   return (
     <ActionPanel.Item
       icon={val ? iconOff : iconOn}
-      title={`${val ? "Hide" : "Show"} ${name}`}
+      title={`${val ? "Disable" : "Enable"} ${name}`}
       onAction={() => updatePref(pref, !val)}
     />
   );
