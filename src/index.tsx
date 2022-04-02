@@ -1,6 +1,7 @@
-import { usePreferences } from "./hooks/usePreferences";
+import { useClipboard } from "./hooks/useClipboard";
 import { useFavorites } from "./hooks/useFavorites";
+import { usePreferences } from "./hooks/usePreferences";
 import PrefenceListActions from "./components/PreferenceListActions";
 import TogglePreferenceAction from "./components/TogglePreferenceAction";
 
-export { usePreferences, useFavorites, PrefenceListActions, TogglePreferenceAction };
+export { useClipboard, useFavorites, usePreferences, PrefenceListActions, TogglePreferenceAction };

@@ -124,3 +124,26 @@ return <List actions={
   </ActionPanel>
 }/>
 ```
+
+## useClipboard
+
+Get the clipboard contents. As the clipboard will return undefined if it's not a string, you might want to show a different message based on if it's returned and empty or not yet returned. This simple hook exposes the clipboard contents and a ready flag, and helps avoid a flash of error if your content requires a clipboard item. 
+
+```tsx
+import {useClipboard} from "raycast-hooks";
+
+const [ready, clipboard] = useClipboard(defaults);
+
+if (!ready || clipboard === undefined || clipboard.length === 0) {
+  return <List isLoading={!ready}>
+    <List.EmptyView
+      icon={'your-icon.png'}
+      title="Please copy the thing to your clipboard"
+    />
+  </List>;
+}
+
+// rest of extension goes here
+```
+
+Using this format you will show the list as loading screen rather than the `EmptyView` whilst your extension is reading from the clipboard.
