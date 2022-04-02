@@ -6,11 +6,11 @@ interface clipboardState {
   clipboard?: string;
 }
 
-export function useClipboard() {
-  const [{ready, clipboard}, setClipboard] = useState<clipboardState>({ready: false});
+export function useClipboard(): clipboardState {
+  const [clipboardState, setClipboard] = useState<clipboardState>({ready: false});
   useEffect(() => {
     setClipboard({ready: false})
     Clipboard.readText().then((clipboard) => setClipboard({ready: true, clipboard}));
-  }, [Clipboard.readText()]);
-  return [ready, clipboard]
+  }, []);
+  return clipboardState;
 }

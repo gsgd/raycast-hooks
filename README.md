@@ -132,7 +132,7 @@ Get the clipboard contents. As the clipboard will return undefined if it's not a
 ```tsx
 import {useClipboard} from "raycast-hooks";
 
-const [ready, clipboard] = useClipboard(defaults);
+const {ready, clipboard} = useClipboard(defaults);
 
 if (!ready || clipboard === undefined || clipboard.length === 0) {
   return <List isLoading={!ready}>
