@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/gsgd/raycast-hooks#readme",
   "devDependencies": {
-    "@raycast/api": "^1.31.0",
+    "@raycast/api": "^1.32.1",
     "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "eslint-config-prettier": "^8.3.0",
