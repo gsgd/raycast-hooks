@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getLocalStorageItem, setLocalStorageItem } from "@raycast/api";
+import { LocalStorage } from "@raycast/api";
 
 export type FavList = string[];
 
@@ -8,12 +8,12 @@ const stripFavs = (lists: (FavList | undefined)[], favs: FavList): FavList[] => 
 };
 
 const getFavs = async (key: string): Promise<FavList> => {
-  const val: string | undefined = await getLocalStorageItem(key);
+  const val: string | undefined = await LocalStorage.getItem(key);
   return JSON.parse(val ?? "[]") ?? [];
 };
 
 const updateFavs = async (key: string, favs: FavList): Promise<void> => {
-  await setLocalStorageItem(key, JSON.stringify(favs));
+  await LocalStorage.setItem(key, JSON.stringify(favs));
 };
 
 export function useFavorites(

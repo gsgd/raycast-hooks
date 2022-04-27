@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getLocalStorageItem, setLocalStorageItem } from "@raycast/api";
+import { LocalStorage } from "@raycast/api";
 
 type PrefList = {
   [key: string]: boolean | string;
@@ -8,12 +8,12 @@ type PrefList = {
 const key = "app.preferences";
 
 const getPrefs = async (): Promise<PrefList> => {
-  const val: string | undefined = await getLocalStorageItem(key);
+  const val: string | undefined = await LocalStorage.getItem(key);
   return (JSON.parse(val ?? "{}") ?? {}) as PrefList;
 };
 
 const updatePrefs = async (prefs: PrefList): Promise<void> => {
-  await setLocalStorageItem(key, JSON.stringify(prefs));
+  await LocalStorage.setItem(key, JSON.stringify(prefs));
 };
 
 export function usePreferences(
